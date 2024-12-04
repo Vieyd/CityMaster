@@ -1,0 +1,10 @@
+C:\Users\slava\source\repos\CityMaster.cs\CityMaster.cs\bin\Debug\CityMaster.cs.exe.config
+C:\Users\slava\source\repos\CityMaster.cs\CityMaster.cs\bin\Debug\CityMaster.cs.exe
+C:\Users\slava\source\repos\CityMaster.cs\CityMaster.cs\bin\Debug\CityMaster.cs.pdb
+C:\Users\slava\source\repos\CityMaster.cs\CityMaster.cs\obj\Debug\CityMaster.cs.csproj.AssemblyReference.cache
+C:\Users\slava\source\repos\CityMaster.cs\CityMaster.cs\obj\Debug\CityMaster.cs.Properties.Resources.resources
+C:\Users\slava\source\repos\CityMaster.cs\CityMaster.cs\obj\Debug\CityMaster.cs.csproj.GenerateResource.cache
+C:\Users\slava\source\repos\CityMaster.cs\CityMaster.cs\obj\Debug\CityMaster.cs.csproj.CoreCompileInputs.cache
+C:\Users\slava\source\repos\CityMaster.cs\CityMaster.cs\obj\Debug\CityMaster.cs.exe
+C:\Users\slava\source\repos\CityMaster.cs\CityMaster.cs\obj\Debug\CityMaster.cs.pdb
+C:\Users\slava\source\repos\CityMaster.cs\CityMaster.cs\obj\Debug\CityMaster.WelcomeForm.resources
