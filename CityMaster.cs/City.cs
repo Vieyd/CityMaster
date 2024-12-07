@@ -84,7 +84,7 @@ namespace CityMaster
             gameTimer.Tick += new EventHandler(gameTimer_Tick);
 
             // Инициализация игры с учётом выбранных параметров
-            game = new Game("Игрок", "GameLog.txt");
+            game = new Game("Игрок", "GameLog.log");
             game.InitializeGame();
 
             // Подписка на событие обновления лога после инициализации игры
@@ -685,7 +685,7 @@ namespace CityMaster
         {
             using (SaveFileDialog saveFileDialog = new SaveFileDialog())
             {
-                saveFileDialog.Filter = "Текстовые файлы (*.txt)|*.txt|Все файлы (*.*)|*.*";
+                saveFileDialog.Filter = "Текстовые файлы (*.log)|*.log|Все файлы (*.*)|*.*";
                 saveFileDialog.Title = "Сохранить протокол игры";
 
                 if (saveFileDialog.ShowDialog() == DialogResult.OK)
@@ -817,9 +817,9 @@ namespace CityMaster
 
             if (saveOption == DialogResult.Yes)
             {
-                // Спрашиваем, хочет ли пользователь сохранить протокол в файл .txt
+                // Спрашиваем, хочет ли пользователь сохранить протокол в файл .log
                 DialogResult saveToFile = MessageBox.Show(
-                    "Вы хотите сохранить протокол в файл .txt?",
+                    "Вы хотите сохранить протокол в файл .log?",
                     "Сохранение протокола",
                     MessageBoxButtons.YesNo,
                     MessageBoxIcon.Question

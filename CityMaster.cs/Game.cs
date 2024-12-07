@@ -87,7 +87,20 @@ namespace CityMaster
                 throw new ArgumentException("Город не может быть пустым.");
 
             if (!CityManager.ContainsCity(city))
-                throw new ArgumentException("Такого города не существует или он не предусмотрен игрой.");
+            {
+                double threshold = Math.Log(city.Length);
+                string suggestedCity = CityManager.GetAllCities()
+                    .FirstOrDefault(c => CalculateLevenshteinDistance(city.ToLower(), c.ToLower()) <= threshold);
+
+                if (!string.IsNullOrEmpty(suggestedCity))
+                {
+                    throw new ArgumentException($"Такого города не существует. Вы имели в виду: {suggestedCity}?");
+                }
+                else
+                {
+                    throw new ArgumentException("Такого города не существует.");
+                }
+            }
 
             // Проверка на повторное использование города
             if (player.UsedCities.Any(c => string.Equals(c, city, StringComparison.OrdinalIgnoreCase)) ||
@@ -112,6 +125,8 @@ namespace CityMaster
 
             // Получаем последнюю допустимую букву
             lastLetter = GetLastValidLetterInternal(city);
+
+
 
             // Проверка, закончилась ли игра из-за недопустимой буквы
             if (lastLetter == ' ')
@@ -143,6 +158,29 @@ namespace CityMaster
                 return null; // Ход игрока
             }
         }
+
+        // Функция для вычисления расстояния Левенштейна
+        private int CalculateLevenshteinDistance(string source, string target)
+        {
+            int[,] dp = new int[source.Length + 1, target.Length + 1];
+            for (int i = 0; i <= source.Length; i++) dp[i, 0] = i;
+            for (int j = 0; j <= target.Length; j++) dp[0, j] = j;
+
+            for (int i = 1; i <= source.Length; i++)
+            {
+                for (int j = 1; j <= target.Length; j++)
+                {
+                    int cost = (source[i - 1] == target[j - 1]) ? 0 : 1;
+                    dp[i, j] = Math.Min(
+                        Math.Min(dp[i - 1, j] + 1, dp[i, j - 1] + 1),
+                        dp[i - 1, j - 1] + cost
+                    );
+                }
+            }
+
+            return dp[source.Length, target.Length];
+        }
+
 
         // Ход компьютера
         private string ComputerMove()

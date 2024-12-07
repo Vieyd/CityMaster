@@ -1,0 +1,13 @@
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+*.vs/
+*.vscode/
+bin/
+obj/
+packages/
+TestResults/
+*.log
+*.tlog
+*.ide

@@ -79,7 +79,7 @@ namespace CityMaster
         // Метод для логирования ошибок в файл
         private void LogError(Exception ex)
         {
-            string logFilePath = "ErrorLog.txt";
+            string logFilePath = "ErrorLog.log";
             string errorMessage = $"[{DateTime.Now}] {ex}\n";
             try
             {
